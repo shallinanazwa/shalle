@@ -465,7 +465,7 @@ body{font-size:13px}</style></head><body>
 <div id="app"></div>
 <script>
 /* ===== KONFIGURASI & DATABASE (localStorage: sama dengan aplikasi pelanggan) ===== */
-const PIN='240306';
+const PIN='030306';
 const $=s=>document.querySelector(s),rp=n=>'Rp'+Math.round(n).toLocaleString('id-ID'),pad=(n,l=2)=>String(n).padStart(l,'0');
 const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const L={g(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},s(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){alert('Penyimpanan penuh')}}};
@@ -591,11 +591,11 @@ const STORE = {
 const PIN = '240306';
 const COURIERS = [
   {id:'jnt',name:'J&T Express',fee:12000,eta:'Tiba ±20 menit'},
-  {id:'gosend',name:'GoSend (Gojek)',fee:15000,eta:'Tiba ±20 menit'},
-  {id:'grab',name:'Grab Express',fee:16000,eta:'Tiba ±20 menit'},
+  {id:'gosend',name:'GoSend (Gojek)',fee:15000,eta:'Tiba ±25 menit'},
+  {id:'grab',name:'Grab Express',fee:16000,eta:'Tiba ±15 menit'},
   {id:'jne',name:'JNE Reguler',fee:11000,eta:'Tiba ±20 menit'},
-  {id:'sicepat',name:'SiCepat',fee:10000,eta:'Tiba ±20 menit'},
-  {id:'toko',name:'Kurir Toko Shalle',fee:8000,eta:'Tiba ±20 menit'}
+  {id:'sicepat',name:'SiCepat',fee:10000,eta:'Tiba ±10 menit'},
+  {id:'toko',name:'Kurir Toko Shalle',fee:8000,eta:'Tiba ±10 menit'}
 ];
 const courier = () => COURIERS.find(c=>c.id===S.order.courier) || COURIERS[0];
 const DISC_PCT = 8;
@@ -618,35 +618,35 @@ const setT = (id,t)=>{const e=document.getElementById(id); if(e) e.textContent=t
 
 /* ====== DATA PRODUK ====== */
 const SEED = [
- ['Butter Croissant','Makanan',22000,18,80,'g','🥐'],
- ['Pain au Chocolat','Makanan',26000,14,90,'g','🥮'],
- ['Cinnamon Roll','Makanan',24000,12,110,'g','🥯'],
- ['Red Velvet Slice','Makanan',38000,10,120,'g','🍰'],
- ['Tiramisu Cup','Makanan',35000,9,150,'g','🍮'],
- ['Basque Cheesecake','Makanan',42000,8,140,'g','🧀'],
- ['Strawberry Panna Cotta','Makanan',32000,10,130,'g','🍓'],
- ['Éclair Vanilla','Makanan',28000,12,70,'g','🍩'],
- ['Macaron Box (6 pcs)','Makanan',68000,7,90,'g','🍬'],
- ['Choco Chip Cookies','Makanan',45000,20,200,'g','🍪'],
- ['Almond Biscotti','Makanan',39000,15,150,'g','🥜'],
- ['Banana Loaf','Makanan',48000,6,250,'g','🍞'],
- ['Fudge Brownies','Makanan',46000,11,180,'g','🍫'],
- ['Dark Chocolate 85%','Makanan',58000,16,80,'g','🍫'],
- ['Pistachio Baklava','Makanan',52000,5,120,'g','🥧'],
- ['Egg Tart','Makanan',20000,15,75,'g','🥚'],
- ['Cold Brew Arabica','Minuman',34000,15,250,'ml','☕'],
- ['Matcha Latte','Minuman',36000,14,300,'ml','🍵'],
- ['Hazelnut Latte','Minuman',35000,12,250,'ml','🥛'],
- ['Thai Tea Premium','Minuman',28000,18,350,'ml','🧋'],
- ['Taro Milk Tea','Minuman',30000,13,350,'ml','🟣'],
- ['Fresh Orange Juice','Minuman',27000,10,300,'ml','🍊'],
- ['Strawberry Smoothie','Minuman',32000,9,350,'ml','🍓'],
- ['Belgian Hot Chocolate','Minuman',33000,10,250,'ml','🍫'],
- ['Sparkling Lychee Tea','Minuman',29000,14,330,'ml','🍹'],
- ['Susu Segar Organik','Minuman',28000,20,1,'L','🥛'],
- ['Air Mineral Premium','Minuman',12000,30,600,'ml','💧'],
- ['Kopi Susu Aren','Minuman',25000,16,250,'ml','🧊']
-].map((a,i)=>({id:i+1,name:a[0],cat:a[1],price:a[2],stock:a[3],size:a[4],unit:a[5],emoji:a[6],img:''}));
+ ['Butter Croissant','Makanan',22000,18,80,'g','🥐','gambarshalle/croissant.png'],
+ ['Pain au Chocolat','Makanan',26000,14,90,'g','🥮','gambarshalle/paint au.jpg'],
+ ['Cinnamon Roll','Makanan',24000,12,110,'g','🥯','gambarshalle/cinnamon.jpg'],
+ ['Red Velvet Slice','Makanan',38000,10,120,'g','🍰','gambarshalle/redvel.jpg'],
+ ['Tiramisu Cup','Makanan',35000,9,150,'g','🍮','gambarshalle/Tiramisu-Cups.jpg'],
+ ['Basque Cheesecake','Makanan',42000,8,140,'g','🧀','gambarshalle/basquecheesecake.jpg'],
+ ['Strawberry Panna Cotta','Makanan',32000,10,130,'g','🍓','gambarshalle/cottastrawberries.jpg'],
+ ['Éclair Vanilla','Makanan',28000,12,70,'g','🍩','gambarshalle/eclair-vainilla-pure.jpg'],
+ ['Macaron Box (6 pcs)','Makanan',68000,7,90,'g','🍬','gambarshalle/macaron.jpg'],
+ ['Choco Chip Cookies','Makanan',45000,20,200,'g','🍪','gambarshalle/chocochips.jpg'],
+ ['Almond Biscotti','Makanan',39000,15,150,'g','🥜','gambarshalle/Almond Biscotti.webp'],
+ ['Banana Loaf','Makanan',48000,6,250,'g','🍞','gambarshalle/Banana Loaf.jpg'],
+ ['Fudge Brownies','Makanan',46000,11,180,'g','🍫','gambarshalle/Fudge Brownies.webp'],
+ ['Dark Chocolate 85%','Makanan',58000,16,80,'g','🍫','gambarshalle/darkchoco.jpg'],
+ ['Pistachio Baklava','Makanan',52000,5,120,'g','🥧','gambarshalle/pistacio.jpg'],
+ ['Egg Tart','Makanan',20000,15,75,'g','🥚','gambarshalle/eggtart.jpg'],
+ ['Cold Brew Arabica','Minuman',34000,15,250,'ml','☕','gambarshalle/coldbrew.jpg'],
+ ['Matcha Latte','Minuman',36000,14,300,'ml','🍵','gambarshalle/machalatte.jpg'],
+ ['Hazelnut Latte','Minuman',35000,12,250,'ml','🥛','gambarshalle/hazelnut.jpg'],
+ ['Thai Tea Premium','Minuman',28000,18,350,'ml','🧋','gambarshalle/thaitea.jpg'],
+ ['Taro Milk Tea','Minuman',30000,13,350,'ml','🟣','gambarshalle/taro.jpg'],
+ ['Fresh Orange Juice','Minuman',27000,10,300,'ml','🍊','gambarshalle/lemonDE.jpg'],
+ ['Strawberry Smoothie','Minuman',32000,9,350,'ml','🍓','gambarshalle/strawberrysmooth.jpg'],
+ ['Belgian Hot Chocolate','Minuman',33000,10,250,'ml','🍫','gambarshalle/belgianhot.jpg'],
+ ['Sparkling Lychee Tea','Minuman',29000,14,330,'ml','🍹','gambarshalle/LycheeTea.jpg'],
+ ['Susu Segar Organik','Minuman',28000,20,1,'L','🥛','gambarshalle/susu.jpg'],
+ ['Air Mineral Premium','Minuman',12000,30,600,'ml','💧','gambarshalle/pristine.jpg'],
+ ['Kopi Susu Aren','Minuman',25000,16,250,'ml','☕','gambarshalle/kopcu.jpg'],
+].map((a,i)=>({id:i+1,name:a[0],cat:a[1],price:a[2],stock:a[3],size:a[4],unit:a[5],emoji:a[6],img:a[7]||''}));
 
 /* ====== STATE ====== */
 const S = {
@@ -658,6 +658,18 @@ const S = {
   pay:{method:'cash',bank:'BRI',ew:'DANA',received:'',ref:''},
   last:null, adminOk:false, delId:null, resetAsk:false, newImg:'', unlocked:false
 };
+// Perbarui alamat gambar produk
+const seedImageByName = Object.fromEntries(
+  SEED.map(a => [a[0], a[7] || ''])
+);
+
+S.products = S.products.map(p => ({
+  ...p,
+  img: seedImageByName[p.name] || p.img || ''
+}));
+
+LS.set('shalle_products', S.products);
+
 const save = () => { LS.set('shalle_products',S.products); LS.set('shalle_history',S.history); LS.set('shalle_seq',S.seq); };
 try{ if(!(LS.get('shalle_products',[])||[]).length) save(); }catch(e){}
 const prod = id => S.products.find(p=>p.id===id);
@@ -1233,7 +1245,7 @@ function vReceipt(){
       ${t.items.map(i=>`<div class="it"><div>${esc(i.name)} <small>${esc(i.size)}</small></div><div class="r"><span>${i.q} × ${rp(i.price)}</span><span>${rp(i.q*i.price)}</span></div>${i.free?`<div class="r"><span>Promo gratis ${i.free} barang</span><span>−${rp(i.free*i.price)}</span></div>`:''}</div>`).join('')}
       <hr>
       ${(t.promo||t.disc)?`<div class="r"><span>Harga barang</span><span>${rp(t.gross)}</span></div>`:''}
-      ${t.promo?`<div class="r"><span>Promo Beli 2 Gratis 1</span><span>−${rp(t.promo)}</span></div>`:''}
+      ${t.promo?`<div class="r"><span>Promo Beli 3 Gratis 1</span><span>−${rp(t.promo)}</span></div>`:''}
       ${t.disc?`<div class="r"><span>Diskon ${t.discPct||8}%</span><span>−${rp(t.disc)}</span></div>`:''}
       <div class="r"><span>Subtotal</span><span>${rp(t.sub)}</span></div>
       <div class="r"><span>Biaya pengantaran</span><span>${rp(t.fee)}</span></div>
