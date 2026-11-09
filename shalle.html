@@ -637,7 +637,7 @@ const SEED = [
  ['Cold Brew Arabica','Minuman',34000,15,250,'ml','☕','gambarshalle/coldbrew.jpg'],
  ['Matcha Latte','Minuman',36000,14,300,'ml','🍵','gambarshalle/machalatte.jpg'],
  ['Hazelnut Latte','Minuman',35000,12,250,'ml','🥛','gambarshalle/hazelnut.jpg'],
- ['Thai Tea Premium','Minuman',28000,18,350,'ml','🧋','gambarshalle/thaitea.jpg'],
+ ['Thai Tea Premium','Minuman',28000,18,350,'ml','🧋','thaitea.jpg'],
  ['Taro Milk Tea','Minuman',30000,13,350,'ml','🟣','gambarshalle/taro.jpg'],
  ['Fresh Orange Juice','Minuman',27000,10,300,'ml','🍊','gambarshalle/lemonDE.jpg'],
  ['Strawberry Smoothie','Minuman',32000,9,350,'ml','🍓','gambarshalle/strawberrysmooth.jpg'],
@@ -645,7 +645,7 @@ const SEED = [
  ['Sparkling Lychee Tea','Minuman',29000,14,330,'ml','🍹','gambarshalle/LycheeTea.jpg'],
  ['Susu Segar Organik','Minuman',28000,20,1,'L','🥛','gambarshalle/susu.jpg'],
  ['Air Mineral Premium','Minuman',12000,30,600,'ml','💧','gambarshalle/pristine.jpg'],
- ['Kopi Susu Aren','Minuman',25000,16,250,'ml','☕','gambarshalle/kopcu.jpg'],
+ ['Kopi Susu Aren','Minuman',25000,16,250,'ml','☕','kopcu.jpg'],
 ].map((a,i)=>({id:i+1,name:a[0],cat:a[1],price:a[2],stock:a[3],size:a[4],unit:a[5],emoji:a[6],img:a[7]||''}));
 
 /* ====== STATE ====== */
@@ -1047,7 +1047,7 @@ function renderList(anim){
   el.innerHTML=arr.length?arr.map((p,ix)=>{
     const out=p.stock<=0, inC=S.cart[p.id]||0;
     return `<article class="card ${out?'out':''} ${anim?'rise':''}" ${anim?`style="animation-delay:${Math.min(ix,12)*45}ms"`:''}>
-      <div class="tile" style="background:${tint(p)}">${pimg(p)}${out?'<span class="tag">Habis</span>':(p.stock<=5?`<span class="tag warn">Sisa ${p.stock}</span>`:'')}${out?'':'<span class="b2g">B2G1</span>'}</div>
+      <div class="tile" style="background:${tint(p)}">${pimg(p)}${out?'<span class="tag">Habis</span>':(p.stock<=5?`<span class="tag warn">Sisa ${p.stock}</span>`:'')}${out?'':'<span class="b2g">B3G1</span>'}</div>
       <h3>${esc(p.name)}</h3>
       <div class="meta">${sizeTxt(p)} · ${p.cat}</div>
       <div class="row"><b>${rp(p.price)}</b><button class="add" ${out||inC>=p.stock?'disabled':''} onclick="addCart(${p.id})" aria-label="Tambah ${esc(p.name)}">+</button></div>
